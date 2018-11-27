@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:padding="10dp"
+    android:background="@drawable/rectangle_white_shadow">
+<TextView
+    android:id="@+id/textTableNo"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textSize="16sp"
+    android:textStyle="bold"
+    android:padding="10dp"
+    android:text="Table 12"/>
+
+    <TextView
+        android:id="@+id/textTotalAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:padding="10dp"
+        android:text="3000"
+        android:textColor="@color/orange"/>
+    <TextView
+        android:id="@+id/textOrderDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:padding="10dp"
+        android:layout_below="@+id/textTableNo"
+        android:text="1 coke 35cl 2 sharwama, 3 turkey, 1 Asun, 10 Heineken"/>
+</RelativeLayout>

@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="HardcodedText"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.TableCountFragment">
+
+
+    <include layout="@layout/background_chef"/>
+    <RelativeLayout
+        android:id="@+id/relativeHeader"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rectangle_white_shadow"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageButton
+            android:id="@+id/buttonBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/app_name" />
+        <TextView
+            android:id="@+id/textTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/select_table_number"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/l1"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:layout_margin="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/relativeHeader"
+        android:weightSum="4">
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="01"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="02"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="03"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>  <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:layout_marginRight="4dp"
+        android:layout_marginLeft="4dp"
+        android:background="@drawable/rectangle_white_line">
+        <TextView
+            android:id="@+id/table4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="04"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:gravity="center" />
+    </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l2"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:layout_margin="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l1"
+        android:layout_marginTop="18sp"
+        android:weightSum="4">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table5"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="05"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table6"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="06"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="07"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:layout_marginRight="4dp"
+        android:layout_marginLeft="4dp"
+        android:background="@drawable/rectangle_white_line">
+        <TextView
+            android:id="@+id/table8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="08"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:gravity="center" />
+    </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l3"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:layout_margin="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l2"
+        android:layout_marginTop="18sp"
+        android:weightSum="4">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table9"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="09"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table10"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="10"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table11"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="11"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table12"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="12"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l4"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:layout_margin="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l3"
+        android:layout_marginTop="18sp"
+        android:weightSum="4">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table13"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="13"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table14"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="14"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table15"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="15"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table16"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="16"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/l5"
+        android:layout_width="0dp"
+        android:layout_height="65dp"
+        android:orientation="horizontal"
+        android:layout_margin="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/l4"
+        android:layout_marginTop="18sp"
+        android:weightSum="4">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table17"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="17"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table18"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="18"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table19"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="19"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp"
+            android:background="@drawable/rectangle_white_line">
+            <TextView
+                android:id="@+id/table20"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="20"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:gravity="center" />
+        </FrameLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

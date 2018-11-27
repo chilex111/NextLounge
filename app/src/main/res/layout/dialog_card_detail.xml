@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10.0dp"
+    app:cardBackgroundColor="@color/white"
+    android:minWidth="450dp"
+    app:cardPreventCornerOverlap="true"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="0dp"
+            android:background="@drawable/rectangle_blue"
+            android:layout_margin="4dp"
+
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:textSize="18.0sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_gravity="center"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/sub_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amount" />
+            <TextView
+                android:textSize="16.0sp"
+                android:textColor="@color/grey"
+                android:id="@+id/card_prompt"
+                android:paddingLeft="4.0dp"
+                android:paddingRight="4.0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/sub_price" />
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textColorHint="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/card_prompt"
+                android:layout_marginLeft="16.0dp"
+                android:layout_marginRight="16.0dp">
+
+                <EditText
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:gravity="center"
+                    android:id="@+id/edit_card_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/label_card_number"
+                    android:minEms="8"
+                    android:layout_marginBottom="10dp"
+                    android:digits="01234 56789"
+                    android:inputType="number" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/expiry_date"
+                android:textColorHint="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/button_perform_transaction"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input">
+
+                <EditText android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:gravity="center"
+                    android:id="@+id/edit_expiry_date"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="19.0dp"
+                    android:layout_marginStart="19.0dp"
+                    android:hint="@string/label_expired_date"
+                    android:minEms="5"
+                    android:maxLength="5"
+                    android:digits="01234/56789"
+                    android:inputType="date" />
+
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toTopOf="@+id/button_perform_transaction"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input"
+                app:layout_constraintVertical_bias="0.0">
+                <EditText
+                    android:id="@+id/edit_cvc"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:gravity="center"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="19.0dp"
+                    android:text=""
+                    android:hint="@string/label_cvv_code"
+                    android:minEms="4"
+                    android:maxLength="4"
+                    android:inputType="number"
+                    android:layout_marginEnd="19.0dp" />
+
+            </android.support.design.widget.TextInputLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:hint="@string/card_pin"
+                android:textColorHint="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/button_perform_transaction"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input2">
+                <EditText
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:gravity="center"
+                    android:id="@+id/edit_pin"
+                    android:visibility="gone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="19.0dp"
+                    android:minEms="4"
+                    android:maxLength="4"
+                    android:inputType="numberPassword"
+                    android:layout_marginStart="19.0dp" />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <Button android:enabled="false"
+                android:textSize="18.0sp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:id="@+id/button_perform_transaction"
+                android:background="@drawable/rectangle_white_line"
+                android:paddingLeft="12.0dp"
+                android:paddingRight="12.0dp"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="19.0dp"
+                android:foreground="?android:selectableItemBackground"
+                android:text="@string/cont"
+                android:layout_centerHorizontal="true"
+                android:textAllCaps="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input2"
+                android:layout_marginEnd="19.0dp" />
+        </android.support.constraint.ConstraintLayout>
+        <TextView android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:gravity="center_horizontal"
+            android:id="@+id/dialog_footer"
+            android:layout_width="0.0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16.0dp"
+            android:layout_marginRight="16.0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

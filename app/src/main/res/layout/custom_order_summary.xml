@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="4dp"
+    android:background="@drawable/rectangle_white_shadow"
+    android:layout_margin="8dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/imageFood"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@color/orange"
+        android:contentDescription="@string/app_name" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_marginLeft="8dp"
+        android:padding="4dp"
+        android:layout_marginRight="8dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Sharwama"
+                android:gravity="center"
+                android:textSize="18sp"
+                android:textColor="@color/black"/>
+            <ImageButton
+                android:id="@+id/buttonClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/close"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
+                android:background="@android:color/transparent"/>
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/textFoodDescript"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="17sp"
+            android:text="Char-grilled chunks of cow meat moistened by mayonnaise"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/textPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3000"
+                android:textColor="@color/orange"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true">
+                <ImageButton
+                    android:id="@+id/buttonAdd"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_add_box"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name" />
+                <TextView
+                    android:id="@+id/textNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:layout_toEndOf="@+id/buttonAdd"
+                    android:layout_toRightOf="@+id/buttonAdd"
+                    android:textColor="@color/black"
+                    android:text="1"/>
+
+                <ImageButton
+                    android:id="@+id/buttonRemove"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_remove_box"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_toRightOf="@+id/textNo"
+                    android:layout_toEndOf="@+id/textNo"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@string/app_name" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
