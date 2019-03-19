@@ -88,7 +88,6 @@
             android:layout_height="wrap_content"
             android:text="@string/remember_me"
             android:textColor="@color/white"
-            android:button="@drawable/ic_check_circle"
             android:checked="false"
             android:textSize="18sp"/>
 

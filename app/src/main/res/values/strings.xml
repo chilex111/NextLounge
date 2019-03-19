@@ -57,5 +57,7 @@
     <string name="card_pin">card PIN</string>
     <string name="expiry_date">Expiry date</string>
     <string name="cont">Continue</string>
+    <string name="qty">Qty:</string>
+    <string name="pos_payment">POS payment</string>
 
 </resources>

@@ -101,7 +101,6 @@
                 android:layout_height="wrap_content"
                 android:text="@string/i_agree_to_the"
                 android:textColor="@color/white"
-                android:button="@drawable/ic_check_circle"
                 android:checked="false"
                 android:textSize="18sp"/>
 
@@ -146,7 +145,6 @@
             android:layout_height="wrap_content"
             android:text="@string/have_an_account"
             android:textColor="@color/white"
-            android:button="@drawable/ic_check_circle"
             android:checked="false"
             android:textSize="18sp"/>
 

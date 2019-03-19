@@ -17,7 +17,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import kotlinx.android.synthetic.main.dialog_payment_card.*
 
 import merchant.com.our.nextlounge.R
 import merchant.com.our.nextlounge.adapter.ProcessAdapter
@@ -28,7 +27,6 @@ import android.widget.Toast
 import android.widget.RadioGroup
 import co.paystack.android.Paystack
 import co.paystack.android.PaystackSdk
-import co.paystack.android.PaystackSdk.chargeCard
 import co.paystack.android.Transaction
 import co.paystack.android.exceptions.ExpiredAccessCodeException
 import co.paystack.android.model.Card
@@ -232,7 +230,7 @@ class ProcessOrderFragment : Fragment(),PayStackCardValidationListener {
     }
 
     private fun startAFreshCharge(paramString2: String) {
-        if (appUtils!!.hasActiveInternetConnection(activity!!)) {
+        if (appUtils!!.hasActiveInternetConnection()) {
             diag!!.dismiss()
             charge = Charge()
             val i = Integer.parseInt(totalPrice.toString())
@@ -271,7 +269,7 @@ class ProcessOrderFragment : Fragment(),PayStackCardValidationListener {
                 dismissDialog()
                 if (transaction.reference != null) {
                     Toast.makeText(activity, transaction.reference, Toast.LENGTH_LONG).show()
-                    if (appUtils!!.hasActiveInternetConnection(activity!!)) {
+                    if (appUtils!!.hasActiveInternetConnection()) {
                         val verifyUrl = "https://api.paystack.co/transaction/verify/" + transaction.reference
                         relativeProgress!!.visibility = View.VISIBLE
                         VerifyOnServer(verifyUrl).execute()
@@ -288,7 +286,7 @@ class ProcessOrderFragment : Fragment(),PayStackCardValidationListener {
                 transactions = transaction
                 Log.i("ChargeCard_Success", transactions!!.reference + " Successful")
                 val url = "https://api.paystack.co/transaction/verify/" + transactions!!.reference
-                if (appUtils!!.hasActiveInternetConnection(activity!!)) {
+                if (appUtils!!.hasActiveInternetConnection()) {
                     relativeProgress!!.visibility = View.VISIBLE
                     VerifyOnServer(url).execute()
 
@@ -478,10 +476,10 @@ class ProcessOrderFragment : Fragment(),PayStackCardValidationListener {
                 val gson = Gson()
                 try {
                     val payStackModel = gson.fromJson<PayStackModel>(result, PayStackModel::class.java)
-                    if (payStackModel.status) {
+                    if (payStackModel.status!!) {
 
-                        val amountPaid = payStackModel.data.amount
-                        val amount = amountPaid / 100
+                        val amountPaid = payStackModel.data!!.amount
+                        val amount = amountPaid!! / 100
                         dismissDialog()
                         buttonpay!!.visibility = View.GONE
                         buttonPrintBill.visibility = View.VISIBLE
@@ -489,7 +487,7 @@ class ProcessOrderFragment : Fragment(),PayStackCardValidationListener {
 
 
                     } else
-                        appUtils!!.showAlert(payStackModel.message)
+                        appUtils!!.showAlert(payStackModel.message!!)
                 } catch (e: Exception) {
                     //  Crashlytics.log(e.getMessage());
                 }

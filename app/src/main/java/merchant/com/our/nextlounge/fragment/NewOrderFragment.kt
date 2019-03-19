@@ -17,6 +17,8 @@ import android.widget.TextView
 import android.widget.Toast
 
 import merchant.com.our.nextlounge.R
+import merchant.com.our.nextlounge.adapter.DrinkAdapter
+import merchant.com.our.nextlounge.adapter.FoodAdapter
 import merchant.com.our.nextlounge.db.LocalDatabase
 import merchant.com.our.nextlounge.fragment.child.MenuFragment
 import merchant.com.our.nextlounge.listener.MenuListener
@@ -57,7 +59,8 @@ class NewOrderFragment : Fragment(),MenuListener {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         val v =inflater.inflate(R.layout.fragment_new_order, container, false)
-        merchant.com.our.nextlounge.adapter.MenuAdapter.listener = this
+        FoodAdapter.listener = this
+        DrinkAdapter.listener = this
 
         localDB = LocalDatabase(activity!!)
 
@@ -111,6 +114,7 @@ class NewOrderFragment : Fragment(),MenuListener {
         textCount!!.setOnClickListener {
             childFragmentManager.beginTransaction()
                     .add(R.id.container, ProcessOrderFragment.newInstance(table_No,null))
+                    .addToBackStack(null)
                     .commit()
         }
         return v
@@ -179,7 +183,7 @@ class NewOrderFragment : Fragment(),MenuListener {
         }
 
     }
-     inner class ViewPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
+    inner class ViewPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
         private val mFragmentList = ArrayList<Fragment>()
         private val mFragmentTitleList = ArrayList<String>()
 
@@ -200,6 +204,7 @@ class NewOrderFragment : Fragment(),MenuListener {
             return mFragmentTitleList[position]
         }
     }
+
 
 /*
 

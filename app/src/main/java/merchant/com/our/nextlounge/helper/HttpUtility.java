@@ -13,6 +13,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
@@ -22,7 +23,6 @@ import javax.net.ssl.HttpsURLConnection;
 
 public class HttpUtility {
   private static String TAG ="HttpUtility";
-
   private static final String auth ="4d099e88364a851e587d2f4996673cf1af578881"; // this allows you connect to the server and receive responsse if there is any
   private static final String api_Key ="ba4c7713116a1574d47c9ae18554e83bf9ce4aad";
   // private static final String token_key ="NhUlOrZhHI7lovelzt5p6MS0VFUbHuS1qyK4ZuYN8LmXLOaqtHbIE/CtPtiAFJ4ZNFR0fAsUgL/Jn+uziQnWYUDq/20ifEYgD6jBYGe4o/Roq99HeFqjZriPHuH3MOH0";
@@ -246,7 +246,7 @@ public class HttpUtility {
     return out.toString();
   }
 
-  public static String getRequest(String myUrl) throws IOException {
+  public static String getRequest(String myUrl, String token) throws IOException {
 
     InputStream is = null;
 
@@ -255,6 +255,7 @@ public class HttpUtility {
       URL url = new URL(myUrl);
       HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
+      conn.addRequestProperty("Authorization","Bearer "+token);
       conn.setReadTimeout(50000 /* milliseconds */);
       conn.setConnectTimeout(30000 /* milliseconds */);
       conn.setRequestMethod("GET");

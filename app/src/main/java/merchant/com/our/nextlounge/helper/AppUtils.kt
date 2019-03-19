@@ -25,26 +25,18 @@ class AppUtils(private val context: Context) {
 
     companion object {
         var PREF_EMAIL: String = "user_email"
-        var PREF_FIRSTNAME: String
         var PREF_IS_LOGGEDIN: String = "isloggedin"
-        var PREF_LASTNAME: String
+        var PREF_USERNAME: String
         var PREF_PASSWORD = "password"
-        var PREF_PHONENUMBER: String ="phone"
         var PREF_PROFILE: String ="profile"
-        var PREF_PIN = "four_digit_pin"
+        var PREF_TOKEN = "token"
         var PREF_USERID: String = "user_id"
-        var PREF_BVN: String = "bvn"
-        var PREF_LOAN_STATUS : String = "loan_status"
-        var PREF_INVESTMENT_STATUS : String = "invest_status"
-        var PREF_USER_STATUS : String = "user_status"
         var LOG_TAG: String="Network check:"
 
         private var sharedPreferenceUtil: SharedPreferenceUtil? = null
 
         init {
-            PREF_FIRSTNAME = "first_name"
-            PREF_LASTNAME = "last_name"
-            PREF_PHONENUMBER = "phone_number"
+            PREF_USERNAME = "last_name"
         }
 
         fun getMyEmail(context: Context?): String {
@@ -57,15 +49,7 @@ class AppUtils(private val context: Context) {
 
         }
 
-        fun getMyFirstName(paramContext: Context?): String? {
-            sharedPreferenceUtil = SharedPreferenceUtil
-            try {
-                return sharedPreferenceUtil!!.getValue(paramContext!!.applicationContext, PREF_FIRSTNAME)
-            } catch (e: Exception) {
-            }
 
-            return ""
-        }
         fun getMyProfile(paramContext: Context?): String? {
             sharedPreferenceUtil = SharedPreferenceUtil
             try {
@@ -76,41 +60,10 @@ class AppUtils(private val context: Context) {
             return ""
         }
 
-
-        fun getMyLoanStatus(paramContext: Context?): String? {
+        fun getMyUserName(paramContext: Context?): String? {
             sharedPreferenceUtil = SharedPreferenceUtil
             try {
-                return sharedPreferenceUtil!!.getValue(paramContext!!.applicationContext, PREF_LOAN_STATUS)
-            } catch (e: Exception) {
-            }
-
-            return ""
-        }
-
-        fun getMyInvestStatus(paramContext: Context?): String? {
-            sharedPreferenceUtil = SharedPreferenceUtil
-            try {
-                return sharedPreferenceUtil!!.getValue(paramContext!!.applicationContext, PREF_INVESTMENT_STATUS)
-            } catch (e: Exception) {
-            }
-
-            return ""
-        }
-
-        fun getMyUserStatus(paramContext: Context?): String? {
-            sharedPreferenceUtil = SharedPreferenceUtil
-            try {
-                return sharedPreferenceUtil!!.getValue(paramContext!!.applicationContext, PREF_USER_STATUS)
-            } catch (e: Exception) {
-            }
-
-            return ""
-        }
-
-        fun getMyLastName(paramContext: Context?): String? {
-            sharedPreferenceUtil = SharedPreferenceUtil
-            try {
-                return sharedPreferenceUtil!!.getValue(paramContext!!.applicationContext, PREF_LASTNAME)
+                return sharedPreferenceUtil!!.getValue(paramContext!!.applicationContext, PREF_USERNAME)
 
             } catch (e: Exception) {
             }
@@ -129,30 +82,6 @@ class AppUtils(private val context: Context) {
             return ""
         }
 
-        fun getMyBVN(paramContext: Context?): String? {
-            sharedPreferenceUtil = SharedPreferenceUtil
-            try {
-                return sharedPreferenceUtil!!.getValue(paramContext!!.applicationContext, PREF_BVN)
-
-            } catch (e: Exception) {
-            }
-
-            return ""
-        }
-
-        fun getMyPhoneNumber(paramContext: Context?): String? {
-            sharedPreferenceUtil = SharedPreferenceUtil
-            try {
-                return sharedPreferenceUtil!!.getValue(paramContext!!.applicationContext, PREF_PHONENUMBER)
-
-            } catch (e: Exception) {
-            }
-
-            return ""
-        }
-
-
-
         fun getMyUserId(paramContext: Context?): String ?{
             sharedPreferenceUtil = SharedPreferenceUtil
             try {
@@ -164,10 +93,10 @@ class AppUtils(private val context: Context) {
             return ""
         }
 
-        fun getMyPin(context: Context?): String? {
+        fun getMyToken(context: Context?): String? {
             sharedPreferenceUtil = SharedPreferenceUtil
             try {
-                return sharedPreferenceUtil!!.getValue(context!!.applicationContext, PREF_PIN)
+                return sharedPreferenceUtil!!.getValue(context!!.applicationContext, PREF_TOKEN)
             } catch (e: Exception){
 
             }
@@ -201,7 +130,7 @@ class AppUtils(private val context: Context) {
         val activeNetworkInfo = connectivityManager.activeNetworkInfo
         return activeNetworkInfo != null
     }
-    fun hasActiveInternetConnection(context: Context): Boolean {
+    fun hasActiveInternetConnection(): Boolean {
         if (isNetworkAvailable()) {
             try {
                 val urlc = URL("http://www.google.com").openConnection() as HttpURLConnection

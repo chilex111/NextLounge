@@ -1,18 +1,25 @@
 package merchant.com.our.nextlounge.fragment
 
-import android.content.Context
-import android.net.Uri
+import android.annotation.SuppressLint
+import android.os.AsyncTask
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 import merchant.com.our.nextlounge.R
+import merchant.com.our.nextlounge.helper.AppUtils
+import merchant.com.our.nextlounge.helper.Const
+import merchant.com.our.nextlounge.helper.HttpUtility
 import merchant.com.our.nextlounge.listener.StringListener
+import merchant.com.our.nextlounge.model.TableModel
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -45,7 +52,8 @@ class TableCountFragment : Fragment(),View.OnClickListener {
     private var table19 : TextView ?= null
     private var table20 : TextView ?= null
     private var selectedTable : String ?= null
-    // private var listener: OnFragmentInteractionListener? = null
+    private var tableList : MutableList<TextView> ?= null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,6 +87,30 @@ class TableCountFragment : Fragment(),View.OnClickListener {
         table18 = v.findViewById(R.id.table18)
         table19 = v.findViewById(R.id.table19)
         table20 = v.findViewById(R.id.table20)
+
+        tableList = ArrayList()
+        tableList!!.add(table1!!)
+        tableList!!.add(table2!!)
+        tableList!!.add(table3!!)
+        tableList!!.add(table4!!)
+        tableList!!.add(table5!!)
+        tableList!!.add(table6!!)
+        tableList!!.add(table7!!)
+        tableList!!.add(table8!!)
+        tableList!!.add(table9!!)
+        tableList!!.add(table10!!)
+        tableList!!.add(table11!!)
+        tableList!!.add(table12!!)
+        tableList!!.add(table13!!)
+        tableList!!.add(table14!!)
+        tableList!!.add(table15!!)
+        tableList!!.add(table16!!)
+        tableList!!.add(table17!!)
+        tableList!!.add(table18!!)
+        tableList!!.add(table19!!)
+        tableList!!.add(table20!!)
+
+        TableAsync().execute()
 
         table1!!.setOnClickListener(this)
         table2!!.setOnClickListener(this)
@@ -193,7 +225,46 @@ class TableCountFragment : Fragment(),View.OnClickListener {
 
     }
 
+    @SuppressLint("StaticFieldLeak")
+    inner class TableAsync:AsyncTask<Void,Int,String>(){
+        override fun doInBackground(vararg p0: Void?): String {
+            val token = AppUtils.getMyToken(activity)
+            val url = Const.NEXT_URL+"tables"
+            return HttpUtility.getRequest(url,token)
+        }
 
+        override fun onPostExecute(result: String?) {
+            super.onPostExecute(result)
+            if (!result.isNullOrEmpty() ){
+                val gson = Gson()
+                val type= object : TypeToken<TableModel>(){}.type
+                val tableModel = gson.fromJson<TableModel>(result, type)
+                if (tableModel.status =="Successful"){
+                    for( table in tableModel.tables){
+                        if (table.status =="Unavailable"){
+                            var tableNo: String?
+                            val tableCheck = table.tableNo.toString()
+                            if (tableCheck.length ==2)
+                                tableNo = table.tableNo.toString()
+                            else
+                                tableNo  ="0"+ table.tableNo
+                            for (singleTable in tableList!!){
+                                val value = singleTable.text.toString()
+                                if (tableNo == value){
+                                    singleTable.setBackgroundColor(ContextCompat.getColor(activity!!, R.color.orange))
+                                 //   Toast.makeText(activity, "This table is already Booked", Toast.LENGTH_LONG).show()
+                                    singleTable.isEnabled = false
+
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+
+    }
 
     companion object {
         var stringListener: StringListener ?= null

@@ -16,7 +16,7 @@ import merchant.com.our.nextlounge.model.PriceModel;
 
 public class LocalDatabase extends SQLiteOpenHelper {
     private static final String DATABASE_NAME ="The_Next";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 4;
 
     private static final String SAVE_ORDER = "save_order";
     private static final String FOOD_NAME = "name";

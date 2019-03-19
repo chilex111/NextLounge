@@ -2,16 +2,18 @@ package merchant.com.our.nextlounge.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.support.v7.widget.CardView
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Picasso
 import merchant.com.our.nextlounge.R
 import merchant.com.our.nextlounge.model.OrderModel
 
-class ProcessAdapter(private val cardModelList: List<OrderModel>?, private val context: Context)
+class ProcessAdapter(private val processModelist: List<OrderModel>?, private val context: Context)
     : RecyclerView.Adapter<ProcessAdapter.CardViewHolder>() {
 
     companion object {
@@ -23,38 +25,42 @@ class ProcessAdapter(private val cardModelList: List<OrderModel>?, private val c
 
 
     inner class CardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-     //   var cardView: CardView = itemView.findViewById(R.id.container)
-        var textFood: TextView ?= null
-        val textExpiry:TextView
-        val textCVV: TextView
-        //   val cardType : TextView
+        //   var cardView: CardView = itemView.findViewById(R.id.container)
+        val textFood: TextView = itemView.findViewById(R.id.textFood)
+        val textDesc:TextView = itemView.findViewById(R.id.textFoodDescript)
+        val textAmt: TextView = itemView.findViewById(R.id.textPrice)
+        val image : ImageView = itemView.findViewById(R.id.imageFood)
+        val textQty : TextView = itemView.findViewById(R.id.textQuantity)
 
 
-        init {
-            this.textFood = itemView.findViewById(R.id.textFood)
-            this.textExpiry = itemView.findViewById(R.id.textFoodDescript)
-            this.textCVV = itemView.findViewById(R.id.textPrice)
-            // cardType = itemView.findViewById(R.id.text)
-        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CardViewHolder {
         val inflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
-            val v = inflater.inflate(R.layout.custom_order_process, parent, false)
+        val v = inflater.inflate(R.layout.custom_order_process, parent, false)
         return CardViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
-        viewHolder = holder
+        holder.textDesc.text = processModelist!![position].food_description
+        holder.textAmt.text =processModelist[position].amount
+        holder.textQty.text = processModelist[position].quantity
+        holder.textFood.text =processModelist[position].foodName
+        if (!processModelist[position].image.isNullOrEmpty())
+            Picasso.with(context).load(processModelist[position].image).into(holder.image)
+        else{
+                holder.image.setImageDrawable(ContextCompat.getDrawable(context,R.mipmap.cola_glass1))
+
+        }
 /*
 
-        val cardNum = "**** **** **** "+cardModelList[position].cardNo
+        val cardNum = "**** **** **** "+processModelist[position].cardNo
         val cardCVV =  "***"
-        val cardExp =  cardModelList[position].cardExpiry
-        val cardId = cardModelList[position].cardId
-        val card_type = cardModelList[position].cardType
-        val auth_code = cardModelList[position].authCode
+        val cardExp =  processModelist[position].cardExpiry
+        val cardId = processModelist[position].cardId
+        val card_type = processModelist[position].cardType
+        val auth_code = processModelist[position].authCode
 
         holder.foodName!!.text = cardNum
         holder.price.text =cardCVV
@@ -86,7 +92,7 @@ class ProcessAdapter(private val cardModelList: List<OrderModel>?, private val c
     }
 
     override fun getItemCount(): Int {
-        return 6
+        return processModelist!!.size
     }
 
 
